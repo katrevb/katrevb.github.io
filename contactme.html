@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTACT</title>
+    <script type="text/javascript">
+        function display() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name != "" && email != "" && message != "") {
+                document.getElementById('submitted-name').innerHTML = name;
+                document.getElementById('submitted-email').innerHTML = email;
+                document.getElementById('submitted-message').innerHTML = message;
+                alert("Submit Successfully.");
+            } else {
+                alert("Please fill in all fields.");
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-image: url("marvelerflare.com_wallpaper.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            color: #FFDF00;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            background-color: rgba(27, 27, 27, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-container {
+            width: 45%;
+        }
+
+        .info-container {
+            width: 45%;
+            background-color: rgba(80, 74, 74, 0.9);
+            border-radius: 5px;
+            padding: 20px;
+            color: #FFDF00;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Abril Fatface', sans-serif;
+            color: #e23636;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #e23636;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #cc2e2e;
+        }
+
+        video {
+            width: 100%;
+            height: 280px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        #video-control button {
+            background-color: #e23636;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Contact Us</h1>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="button" onclick="display()">Submit</button>
+            </form>
+        </div>
+
+        <div class="info-container">
+            <h1>Submitted Information:</h1>
+            <div>
+                <label for="name">Name:</label>
+                <span id="submitted-name"></span>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <span id="submitted-email"></span>
+            </div>
+            <div>
+                <label for="message">Message:</label>
+                <span id="submitted-message"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="video-section">
+        <video src="Imagine Dragons x J.I.D - Enemy (from the series Arcane League of Legends).mp4" controls></video>
+    </div>
+</body>
+</html>
