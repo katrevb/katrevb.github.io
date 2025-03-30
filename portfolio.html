@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joie - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+            </ul>
+            <div class="site-title">Joie</div>
+            <ul class="nav-icons">
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="portfolio-main">
+        <section id="portfolio-intro">
+            <h2>Portfolio</h2>
+        </section>
+
+        <!-- Image Gallery -->
+        <section id="image-gallery">
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/pm_1742001196025_cmp.jpg" alt="Gallery Image 1" onclick="getLongerWord()">
+                    <span class="topic-text">Compare Longer Words</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/pm_1742001205328_cmp.jpg" alt="Gallery Image 2" onclick="temperatureConverter()">
+                    <span class="topic-text">Temperature Converter</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/pm_1742001201589_cmp.jpg" alt="Gallery Image 3" onclick="knowMyBirthstone()">
+                    <span class="topic-text">Birthstone Identifier</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/1000026904.jpg" alt="Gallery Image 4" onclick="basicOperators()">
+                    <span class="topic-text">Basic Operators</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/pm_1742001207773_cmp.jpg" alt="Gallery Image 5" onclick="computeAcceleration()">
+                    <span class="topic-text">Calculate Acceleration</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/1000026924.jpg" alt="Gallery Image 6" onclick="denomination()">
+                    <span class="topic-text">Denomination Breakdown</span>
+                </div>
+            </div>
+        </section>
+
+    <footer>
+        <p>© 2025 Kathleen Joie Belda</p>
+    </footer>
+
+    <script>
+     function temperatureConverter() {
+      let choice = prompt("Enter 1 to convert Celsius to Fahrenheit, or 2 for Fahrenheit to Celsius:");
+      if (choice === "1") {
+        let celsius = prompt("Enter temperature in Celsius:");
+        celsius = parseFloat(celsius);
+        if (isNaN(celsius)) return alert("Please enter a valid number!");
+        let fahrenheit = (celsius * 9/5) + 32;
+        alert(celsius + "°C is " + fahrenheit.toFixed(2) + "°F");
+      } else if (choice === "2") {
+        let fahrenheit = prompt("Enter temperature in Fahrenheit:");
+        fahrenheit = parseFloat(fahrenheit);
+        if (isNaN(fahrenheit)) return alert("Please enter a valid number!");
+        let celsius = (fahrenheit - 32) * 5/9;
+        alert(fahrenheit + "°F is " + celsius.toFixed(2) + "°C");
+      } else {
+        alert("Invalid choice! Please enter 1 or 2.");
+      }
+    }
+
+    function getLongerWord() {
+      let word1 = prompt("Enter a word:");
+      let word2 = prompt("Enter another word:");
+      if (!word1 || !word2) return alert("Please enter valid words!");
+      let longerWord = word1.length > word2.length ? word1 :
+                      word2.length > word1.length ? word2 :
+                      "Both words are of equal length: " + word1 + " and " + word2;
+      alert("The longer word is: " + longerWord);
+    }
+
+    function knowMyBirthstone() {
+      let month = parseInt(prompt("Enter your birth month (1-12):"));
+      const birthstones = ["Garnet", "Amethyst", "Aquamarine", "Diamond", "Emerald", "Pearl",
+                          "Ruby", "Peridot", "Sapphire", "Opal", "Topaz", "Turquoise"];
+      if (isNaN(month) || month < 1 || month > 12) {
+        alert("Invalid month! Please enter a number between 1 and 12.");
+      } else {
+        alert("Your birthstone is: " + birthstones[month - 1]);
+      }
+    }
+
+    function basicOperators() {
+      let num1 = parseFloat(prompt("Enter the first number:"));
+      let num2 = parseFloat(prompt("Enter the second number:"));
+      
+      if (isNaN(num1) || isNaN(num2)) {
+        alert("Please enter valid numbers!");
+        return;
+      }
+      
+      let operation = prompt("Choose an operation: + or A for addition, - or S for subtraction, * or M for multiplication, / or D for division").toUpperCase();
+      let result;
+      
+      switch (operation) {
+        case "+":
+        case "A":
+          result = num1 + num2;
+          alert(`${num1} + ${num2} = ${result.toFixed(2)}`);
+          break;
+        case "-":
+        case "S":
+          result = num1 - num2;
+          alert(`${num1} - ${num2} = ${result.toFixed(2)}`);
+          break;
+        case "*":
+        case "M":
+          result = num1 * num2;
+          alert(`${num1} * ${num2} = ${result.toFixed(2)}`);
+          break;
+        case "/":
+        case "D":
+          if (num2 === 0) {
+            alert("Error: Division by zero!");
+          } else {
+            result = num1 / num2;
+            alert(`${num1} / ${num2} = ${result.toFixed(2)}`);
+          }
+          break;
+        default:
+          alert("Invalid operation!");
+      }
+    }
+    
+    function computeAcceleration() {
+      let initialVelocity = parseFloat(prompt("Enter the initial velocity (m/s):"));
+      let finalVelocity = parseFloat(prompt("Enter the final velocity (m/s):"));
+      let changeInTime = parseFloat(prompt("Enter the change in time (seconds):"));
+
+      if (isNaN(initialVelocity) || isNaN(finalVelocity) || isNaN(changeInTime) || changeInTime === 0) {
+        alert("Invalid input. Please enter valid numbers and ensure time is not zero.");
+        return;
+      }
+
+      let acceleration = (finalVelocity - initialVelocity) / changeInTime;
+      alert("Acceleration: " + acceleration.toFixed(2) + " m/s²");
+    }
+
+    function denomination() {
+        let a = parseInt(prompt("Enter a number:"));
+
+        let b = Math.floor(a / 20);
+        let c = a % 20;
+        let d = Math.floor(c / 10);
+        let e = c % 10;
+        let f = Math.floor(e / 5);
+        let g = e % 5;
+
+        alert(`20 - ${b} \n10 - ${d} \n5 - ${f} \n1 - ${g}`);
+    }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joie - Favorites</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add this to your CSS file (style.css) for better organization */
+        .liked .heart-icon {
+            content: url('images/heart-filled-icon.png'); /* Replace with your filled heart image */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+            </ul>
+            <div class="site-title">Joie</div>
+            <ul class="nav-icons">
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="favorites-main">
+        <section id="favorites-gallery">
+            <h2>Favorites</h2>
+            <div class="favorite-item">
+                <h2>Marvel</h2>
+                <img src="images/marvel.jpg" alt="Favorite 1">
+                <button class="like-button" onclick="toggleLike(this)">
+                    <img src="images/heart-outline-icon-512x436-16pjfl7l.png" alt="Like" class="heart-icon">
+                </button>
+                <div class="comment-section">
+                    <textarea class="comment-input" placeholder="Add a comment"></textarea>
+                    <button onclick="addComment(this)">Post Comment</button>
+                    <ul class="comment-list"></ul>
+                </div>
+            </div>
+
+            <div class="favorite-item">
+                <h2>Filipino Classic Movies</h2>
+                <img src="images/classicpinoyromancefilms-640-rev-1551345521.jpg" alt="Favorite 2">
+                <button class="like-button" onclick="toggleLike(this)">
+                    <img src="images/heart-outline-icon-512x436-16pjfl7l.png" alt="Like" class="heart-icon">
+                </button>
+                <div class="comment-section">
+                    <textarea class="comment-input" placeholder="Add a comment"></textarea>
+                    <button onclick="addComment(this)">Post Comment</button>
+                    <ul class="comment-list"></ul>
+                </div>
+            </div>
+
+            <div class="favorite-item">
+                <h2>Music</h2>
+                <img src="images/museyk.png" alt="Favorite 3">
+                <button class="like-button" onclick="toggleLike(this)">
+                    <img src="images/heart-outline-icon-512x436-16pjfl7l.png"  alt="Like" class="heart-icon">
+                </button>
+                <div class="comment-section">
+                    <textarea class="comment-input" placeholder="Add a comment"></textarea>
+                    <button onclick="addComment(this)">Post Comment</button>
+                    <ul class="comment-list"></ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Kathleen Joie Belda</p>
+    </footer>
+
+    <script>
+        function toggleLike(element) {
+    
+            if(element.style.backgroundColor === "red")
+            {
+                element.style.backgroundColor = "#222";
+            }
+            else
+            {
+                element.style.backgroundColor = "red";
+            }
+        }
+
+        function addComment(button) {
+            let commentInput = button.parentElement.querySelector(".comment-input");
+            let commentText = commentInput.value.trim();
+
+            if (commentText !== "") {
+                let commentList = button.parentElement.querySelector(".comment-list");
+                let newComment = document.createElement("li");
+                newComment.textContent = commentText;
+                commentList.appendChild(newComment);
+                commentInput.value = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
