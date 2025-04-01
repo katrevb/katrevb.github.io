@@ -18,16 +18,28 @@
             <div class="site-title">Joie</div>
             <ul class="nav-icons">
                 <li><a href="about.html">About</a></li>
+                <li><a id="close-button" onclick="self.close()">x</a></li>
             </ul>
         </nav>
     </header>
 
     <main id="home-main">
         <section id="hero">
-            <div class="hero-content">
-                <h1>Just A Curious Flame in the Lantern of Creativity</h1>
+            <div class="hero-carousel">
+                <div class="carousel-images">
+                    <img src="images/DSC_1890.jpg" alt="Image 1">
+                    <img src="images/DSC_2738.jpg" alt="Image 2">
+                    <img src="images/DSC_2739.jpg" alt="Image 3">
+                    <img src="images/DSC_2835.jpg" alt="Image 4">
+                </div>
+                <div class="hero-content">
+                    <h1>Just A Curious Flame in the Lantern of Creativity</h1>
+                </div>
+                <button class="prev" onclick="moveSlide(-1)">❮</button>
+                <button class="next" onclick="moveSlide(1)">❯</button>
             </div>
         </section>
+        
 
         <section id="intro">
             <div class="intro-content">
@@ -46,6 +58,29 @@
     <footer>
         <p>© 2025 Kathleen Joie Belda</p>
     </footer>
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-images img');
 
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function moveSlide(n) {
+            slideIndex += n;
+            if (slideIndex >= slides.length) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = slides.length - 1; }
+            showSlide(slideIndex);
+        }
+
+        showSlide(slideIndex);
+
+        setInterval(() => moveSlide(1), 10000);
+    </script>
 </body>
 </html>
