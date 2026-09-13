@@ -32,19 +32,19 @@ a:hover {
 
 /* Header */
 header {
-   position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
-    background-color: rgba(18, 18, 18, 0.6); /* Added opacity to background */
+    background-color: rgba(18, 18, 18, 0.6);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.7em; /* Reduced padding */
+    padding: 0.7em;
 }
 
 nav ul {
@@ -54,7 +54,6 @@ nav ul {
     display: flex;
     align-items: center;
     margin-inline: 32px;
-
 }
 
 nav ul li {
@@ -67,14 +66,14 @@ nav ul li a {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 0.65em; /* Smaller font size */
+    font-size: 0.65em;
     font-weight: 500;
     letter-spacing: 0.05em;
     transition: background-color 0.3s ease;
     display: inline-block;
-    padding: 0.7em 0.9em; /* Reduced padding */
-    border-radius: 25px; /* Circular shape */
-    border: 1px solid rgba(255, 255, 255, 0.8); /* Border applied directly */
+    padding: 0.7em 0.9em;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
     position: relative;
 }
 
@@ -85,19 +84,18 @@ nav ul li a:hover {
 .site-title {
     font-family: 'Brolimo', sans-serif;
     font-size: 1.8em; 
-    letter-spacing: 0.08em;
     letter-spacing: -1.3px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     margin-right: 176px;
 }
 
 nav ul.nav-links {
-        order: 0;
+    order: 0;
 }
 
 nav ul.nav-icons {
-        order: 2;
-        padding-left: 2em;
+    order: 2;
+    padding-left: 2em;
 }
 
 /* Footer */
@@ -114,22 +112,73 @@ footer {
 
 /* Home Page Styles */
 #home-main {
-    margin-top: 75px; 
+    margin-top: 50px; /* Reduced from 75px to adjust the page higher up */
 }
 
+/* Updated Hero Section to properly hold identical sized images */
 #home-main #hero {
     text-align: center;
-    padding: 7em 0;
-    background-image: url('images/background.gif');/* Index Hero Image */
-    background-size: cover;
-    background-position: center;
-    color: #ffffff;
+    background-color: #121212;
     overflow: hidden;
     border-radius: 15px;
     max-width: 1250px;  
-    max-height: 460px;
+    height: 460px; /* Forces the box to stay exactly this height */
     margin: 1em auto;
     position: relative; 
+}
+
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Force all images to be the same size */
+.carousel-images img {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crops the image proportionally to fill the box */
+    object-position: center top; /* Centers the focus of the image */
+}
+
+.carousel-images img.active {
+    display: block;
+}
+
+/* Carousel Buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+.prev:hover, .next:hover { 
+    background-color: rgba(0, 0, 0, 0.9); 
 }
 
 #home-main #hero .hero-content {
@@ -138,22 +187,17 @@ footer {
     width: 100%;       
     max-width: 800px;  
     margin: 0 auto;     
-    padding: 20px;     
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4); /* Adds a slight dark box so text is readable over images */
+    border-radius: 10px;
 }
 
 #home-main #hero h1 {
-    font-family: 'Brolimo', sans-serif;/* Adding this font type for the title*/
-    font-size: 5em;  /* Increased font size */
-    margin-bottom: 3em;
-    letter-spacing: -3px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-}
-
-#home-main #hero p {
-    font-family: 'Lora', serif;/* Adding this font type*/
-    font-size: 1.8em;  /* Increased font size */
-    font-weight: 300;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    font-family: 'Brolimo', sans-serif;
+    font-size: 4em;  
+    margin-bottom: 0;
+    letter-spacing: -2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 #home-main #intro {
@@ -213,7 +257,6 @@ footer {
     margin: 0 auto;
 }
 
-/*Image Gallery*/
 #home-main #image-gallery {
     padding: 3em 0;
     background-color: #121212;
@@ -233,7 +276,7 @@ footer {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    position: relative; /* Required for absolute positioning of the text */
+    position: relative;
 }
 
 #portfolio-main #image-gallery .gallery-item img {
@@ -248,7 +291,6 @@ footer {
     transform: scale(1.01);
 }
 
-/* Style for the Topic text */
 .topic-text {
     position: absolute;
     top: 50%;
@@ -264,7 +306,6 @@ footer {
     pointer-events: none; 
 }
 
-/* Show the Topic text on hover */
 .gallery-item:hover .topic-text {
     opacity: 1;
 }
@@ -284,9 +325,10 @@ footer {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     padding: 2em;
-    max-width: 600px; /* Limit width */
+    max-width: 600px; 
     position: relative;
 }
+
 .favorite-item h2{
     padding: 0px;
     margin-block: 5px;
@@ -304,7 +346,7 @@ footer {
     color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.8);
     padding: 1.7px 25px;
-    border-radius: 50px; /* Oblong shape */
+    border-radius: 50px; 
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
     margin-top: 10px;
@@ -323,24 +365,28 @@ footer {
     color: #181818;
 }
 
-#favorites-main .favorite-item .comment-section {
+.comment-section {
     margin-top: 2em;
 }
 
-#favorites-main .favorite-item .comment-section textarea {
-    width: 90%;
-    height: 100px;
-    padding: 0.8em;
-    border-radius: 6px;
-    border: 1px solid #555;
-    background-color: #333;
-    color: #eee;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1em;
-    margin-bottom: 1em;
+.comment-input {
+    width: 100%;
+    height: 60px;
+    padding: 8px;
+    margin-bottom: 5px;
+    border: 1px solid #555; 
+    border-radius: 8px;      
+    box-sizing: border-box;
+    background-color: #333;   
+    color: #fff;           
+    font-family: 'Lora', serif;
 }
 
-#favorites-main .favorite-item .comment-section button {
+.comment-input::placeholder {
+    color: #999;           
+}
+
+.comment-section button {
     background-color: #222;
     color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.8);
@@ -351,43 +397,66 @@ footer {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#favorites-main .favorite-item .comment-section button:hover {
+.comment-section button:hover {
     background-color: rgba(255, 255, 255, 0.3);
+}
+
+.comment-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment-list li {
+    margin-bottom: 8px;
+    padding: 8px 0;         
+    border-bottom: 1px solid #555;
+    color: #fff;               
+    word-break: break-word;
+}
+
+.liked .heart-icon {
+    content: url('images/heart-filled-icon.png');
 }
 
 /* About Page Styles */
 #about-main {
-    padding: 100px 20px 20px; /* Adjust for fixed header */
+    padding: 100px 20px 20px; 
     max-width: 800px;
     margin: 0 auto;
-    text-align: center; /* Center content for a cleaner look */
+    text-align: justify; 
+    line-height: 1.6;
+}
+
+#about-main p {
+    text-indent: 40px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+#about-main em {
+    font-style: italic;
 }
 
 #about-intro {
-    margin-bottom: 2em; /* Space before the main content */
+    margin-bottom: 2em; 
+    text-align: center;
 }
 
 #about-intro h2 {
     font-size: 2.5em;
-    color: #a7ffeb; /* Accent color for heading */
+    color: #a7ffeb; 
     margin-bottom: 0.5em;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 #about-intro img {
-    width: 200px; /* Adjust image size */
+    width: 200px; 
     height: 200px;
-    border-radius: 50%; /* Circular image */
+    border-radius: 50%; 
     object-fit: cover;
     margin-bottom: 1em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for depth */
-}
-
-#about-intro p {
-    font-size: 1.1em;
-    line-height: 1.7;
-    color: #ddd;
-    padding: 0 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
 }
 
 #about-content {
@@ -401,107 +470,4 @@ footer {
     font-size: 2em;
     color: #eee;
     margin-bottom: 0.7em;
-}
-
-#about-content p {
-    font-size: 1.1em;
-    line-height: 1.7;
-    color: #ccc;
-}
-
-
- /*comment section */
-.comment-section {
-    margin-top: 10px;
-}
-
-.comment-input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 5px;
-    border: 1px solid #555; 
-    border-radius: 8px;      
-    box-sizing: border-box;
-    background-color: #333;   
-    color: #fff;           
-}
-
-.comment-input::placeholder {
-    color: #999;           
-}
-
-
-/* Styling for the comment list */
-.comment-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* Styling for individual comments */
-.comment-list li {
-    margin-bottom: 8px;
-    padding: 8px 0;         
-    border-bottom: 1px solid #555;
-    color: #fff;               
-    word-break: break-word;
-}
-
-/* --- Added Carousel Fixes (from index.html) --- */
-.hero-carousel {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.carousel-images img {
-    display: none;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-}
-.carousel-images img.active {
-    display: block;
-}
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 15px 20px;
-    cursor: pointer;
-    font-size: 24px;
-    z-index: 10;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-.prev { left: 10px; }
-.next { right: 10px; }
-.prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.9); }
-.hero-content {
-    text-align: center;
-    margin-top: 15px;
-}
-
-/* --- Added About Page Scoped Styles (from about.html) --- */
-#about-main {
-    line-height: 1.6;
-    text-align: justify;
-}
-#about-main p {
-    text-indent: 40px;
-    margin-bottom: 20px;
-    line-height: 1.8;
-}
-#about-main em {
-    font-style: italic;
-}
-
-/* --- Added Favorites Page Styles (from favorites.html) --- */
-.liked .heart-icon {
-    content: url('images/heart-filled-icon.png');
 }
