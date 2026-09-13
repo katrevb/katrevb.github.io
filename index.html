@@ -4,7 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joie - Home</title>
+    
+    <!-- Your existing stylesheet -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- CSS specifically added to fix the carousel and arrows -->
+    <style>
+        /* Makes the carousel container a reference point for the arrows */
+        .hero-carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Hide all images by default, ensure they fit the container */
+        .carousel-images img {
+            display: none;
+            width: 100%;
+            max-width: 100%; /* Ensures they don't break out of the container */
+            height: auto;
+        }
+
+        /* Only show the image that currently has the 'active' class */
+        .carousel-images img.active {
+            display: block;
+        }
+
+        /* Position and style the buttons */
+        .prev, .next {
+            position: absolute;
+            top: 50%; /* Vertically centers the arrows */
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 10; /* Forces arrows to sit on top of the images */
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Place left arrow on the left edge */
+        .prev {
+            left: 10px;
+        }
+
+        /* Place right arrow on the right edge */
+        .next {
+            right: 10px;
+        }
+
+        /* Darken arrows when hovered over */
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        /* Center the hero text */
+        .hero-content {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
 
@@ -32,11 +97,14 @@
                     <img src="images/EIXejOuWsAANmHS.jpeg" alt="Image 3">
                     <img src="images/EIXejOvXYAA27QW.jpeg" alt="Image 4">
                 </div>
+                
+                <!-- Left and Right Buttons -->
+                <button class="prev" onclick="moveSlide(-1)">❮</button>
+                <button class="next" onclick="moveSlide(1)">❯</button>
+                
                 <div class="hero-content">
                     <h1>Just A Curious Flame in the Lantern of Creativity</h1>
                 </div>
-                <button class="prev" onclick="moveSlide(-1)">❮</button>
-                <button class="next" onclick="moveSlide(1)">❯</button>
             </div>
         </section>
         
@@ -58,6 +126,7 @@
     <footer>
         <p>© 2025 Kathleen Joie Belda</p>
     </footer>
+    
     <script>
         let slideIndex = 0;
         const slides = document.querySelectorAll('.carousel-images img');
@@ -78,8 +147,10 @@
             showSlide(slideIndex);
         }
 
+        // Initialize the first slide
         showSlide(slideIndex);
 
+        // Auto-change slides every 10 seconds
         setInterval(() => moveSlide(1), 10000);
     </script>
 </body>
