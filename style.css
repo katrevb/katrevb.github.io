@@ -82,8 +82,6 @@ nav ul li a:hover {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-
-
 .site-title {
     font-family: 'Brolimo', sans-serif;
     font-size: 1.8em; 
@@ -101,6 +99,7 @@ nav ul.nav-icons {
         order: 2;
         padding-left: 2em;
 }
+
 /* Footer */
 footer {
     background-color: #121212;
@@ -112,7 +111,6 @@ footer {
     width: 100%;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
-
 
 /* Home Page Styles */
 #home-main {
@@ -197,11 +195,6 @@ footer {
     text-decoration: none;
 }
 
-
-
-
-
-
 /* Portfolio Page Styles */
 #portfolio-main #portfolio-intro {
     text-align: center;
@@ -275,11 +268,6 @@ footer {
 .gallery-item:hover .topic-text {
     opacity: 1;
 }
-
-
-
-
-
 
 /* Favorites Page Styles */
 #favorites-main #favorites-gallery {
@@ -457,4 +445,63 @@ footer {
     border-bottom: 1px solid #555;
     color: #fff;               
     word-break: break-word;
+}
+
+/* --- Added Carousel Fixes (from index.html) --- */
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.carousel-images img {
+    display: none;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+.carousel-images img.active {
+    display: block;
+}
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+.prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.9); }
+.hero-content {
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* --- Added About Page Scoped Styles (from about.html) --- */
+#about-main {
+    line-height: 1.6;
+    text-align: justify;
+}
+#about-main p {
+    text-indent: 40px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+#about-main em {
+    font-style: italic;
+}
+
+/* --- Added Favorites Page Styles (from favorites.html) --- */
+.liked .heart-icon {
+    content: url('images/heart-filled-icon.png');
 }

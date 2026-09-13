@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joie - Favorites</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Add this to your CSS file (style.css) for better organization */
-        .liked .heart-icon {
-            content: url('images/heart-filled-icon.png'); /* Replace with your filled heart image */
-        }
-    </style>
 </head>
 <body>
 
@@ -78,13 +72,11 @@
 
     <script>
         function toggleLike(element) {
-    
-            if(element.style.backgroundColor === "red")
-            {
+            element.classList.toggle("liked"); // Triggers the CSS image swap
+            
+            if(element.style.backgroundColor === "red") {
                 element.style.backgroundColor = "#222";
-            }
-            else
-            {
+            } else {
                 element.style.backgroundColor = "red";
             }
         }
