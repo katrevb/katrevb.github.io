@@ -30,21 +30,23 @@ a:hover {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Header */
+/* =========================================
+   HEADER & NAVIGATION
+   ========================================= */
 header {
-   position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
-    background-color: rgba(18, 18, 18, 0.6); /* Added opacity to background */
+    background-color: rgba(18, 18, 18, 0.85); /* Slightly darker so text is readable */
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.7em; /* Reduced padding */
+    padding: 0.7em 2em; /* Better padding */
 }
 
 nav ul {
@@ -53,8 +55,6 @@ nav ul {
     margin: 0;
     display: flex;
     align-items: center;
-    margin-inline: 32px;
-
 }
 
 nav ul li {
@@ -67,15 +67,14 @@ nav ul li a {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 0.65em; /* Smaller font size */
+    font-size: 0.65em;
     font-weight: 500;
     letter-spacing: 0.05em;
     transition: background-color 0.3s ease;
     display: inline-block;
-    padding: 0.7em 0.9em; /* Reduced padding */
-    border-radius: 25px; /* Circular shape */
-    border: 1px solid rgba(255, 255, 255, 0.8); /* Border applied directly */
-    position: relative;
+    padding: 0.7em 0.9em;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 nav ul li a:hover {
@@ -85,22 +84,18 @@ nav ul li a:hover {
 .site-title {
     font-family: 'Brolimo', sans-serif;
     font-size: 1.8em; 
-    letter-spacing: 0.08em;
     letter-spacing: -1.3px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    margin-right: 176px;
+    /* Removed margin-right: 176px so it auto-centers cleanly */
 }
 
-nav ul.nav-links {
-        order: 0;
-}
+nav ul.nav-links { order: 0; }
+nav ul.nav-icons { order: 2; }
 
-nav ul.nav-icons {
-        order: 2;
-        padding-left: 2em;
-}
 
-/* Footer */
+/* =========================================
+   FOOTER
+   ========================================= */
 footer {
     background-color: #121212;
     color: #ddd;
@@ -112,359 +107,57 @@ footer {
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Home Page Styles */
+
+/* =========================================
+   HOME PAGE (HERO & CAROUSEL)
+   ========================================= */
 #home-main {
-    margin-top: 75px; 
+    margin-top: 80px; 
 }
 
 #home-main #hero {
     text-align: center;
-    padding: 7em 0;
-    background-image: url('images/background.gif');/* Index Hero Image */
-    background-size: cover;
-    background-position: center;
-    color: #ffffff;
-    overflow: hidden;
+    background-color: #121212;
     border-radius: 15px;
     max-width: 1250px;  
-    max-height: 460px;
+    height: 460px; /* Forces exact height */
     margin: 1em auto;
     position: relative; 
-}
-
-#home-main #hero .hero-content {
-    position: relative;
-    z-index: 2;
-    width: 100%;       
-    max-width: 800px;  
-    margin: 0 auto;     
-    padding: 20px;     
-}
-
-#home-main #hero h1 {
-    font-family: 'Brolimo', sans-serif;/* Adding this font type for the title*/
-    font-size: 5em;  /* Increased font size */
-    margin-bottom: 3em;
-    letter-spacing: -3px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-}
-
-#home-main #hero p {
-    font-family: 'Lora', serif;/* Adding this font type*/
-    font-size: 1.8em;  /* Increased font size */
-    font-weight: 300;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
-}
-
-#home-main #intro {
-    padding: 4em 0;
-    text-align: center;
-    background-color: #121212;
-}
-
-#home-main #intro .intro-content {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-#home-main #intro h2 {
-    font-size: 2.5em;
-    margin-bottom: 0.6em;
-    font-weight: 600;
-}
-
-#home-main #intro p {
-    font-size: 1.2em;
-    color: #ccc;
-}
-
-#home-main #intro .read-more-button {
-    display: inline-block;
-    font-family: 'Lora', serif;   
-    padding: 1em 2em;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    color: white;
-    letter-spacing: 1.1px;
-    border-radius: 26px;
-    font-size: 0.6em;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-#home-main #intro .read-more-button:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    text-decoration: none;
-}
-
-/* Portfolio Page Styles */
-#portfolio-main #portfolio-intro {
-    text-align: center;
-    padding: 4em 0;
-}
-
-#portfolio-main #portfolio-intro h2 {
-    font-size: 3em;
-    margin-bottom: 0.4em;
-}
-
-#portfolio-main #portfolio-intro p {
-    font-size: 1.2em;
-    color: #ccc;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/*Image Gallery*/
-#home-main #image-gallery {
-    padding: 3em 0;
-    background-color: #121212;
-    text-align: center;
-}
-
-#portfolio-main #image-gallery .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-#portfolio-main #image-gallery .gallery-item {
-    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    position: relative; /* Required for absolute positioning of the text */
 }
 
-#portfolio-main #image-gallery .gallery-item img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    transition: transform 0.3s ease;
-    object-fit: cover;
-}
-
-#portfolio-main #image-gallery .gallery-item img:hover {
-    transform: scale(1.01);
-}
-
-/* Style for the Topic text */
-.topic-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; 
-    color: white;
-    font-size: 1.5em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    opacity: 0;  
-    transition: opacity 0.3s ease;
-    z-index: 1;     
-    pointer-events: none; 
-}
-
-/* Show the Topic text on hover */
-.gallery-item:hover .topic-text {
-    opacity: 1;
-}
-
-/* Favorites Page Styles */
-#favorites-main #favorites-gallery {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 3em 0;
-}
-
-#favorites-main .favorite-item {
-    margin-bottom: 3em;
-    text-align: center;
-    background-color: #222;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    padding: 2em;
-    max-width: 600px; /* Limit width */
-    position: relative;
-}
-.favorite-item h2{
-    padding: 0px;
-    margin-block: 5px;
-}
-
-#favorites-main .favorite-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 1.5em;
-}
-
-#favorites-main .favorite-item .like-button {
-    background-color: #222 ;
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    padding: 1.7px 25px;
-    border-radius: 50px; /* Oblong shape */
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    margin-top: 10px;
-}
-
-#favorites-main .favorite-item .heart-icon {
-    height: 18px;
-    filter: invert(1);
-    width: 20px;
-    margin-block: 10px;
-    border-radius: 0px;
-}
-
-#favorites-main .favorite-item .like-button:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    color: #181818;
-}
-
-#favorites-main .favorite-item .comment-section {
-    margin-top: 2em;
-}
-
-#favorites-main .favorite-item .comment-section textarea {
-    width: 90%;
-    height: 100px;
-    padding: 0.8em;
-    border-radius: 6px;
-    border: 1px solid #555;
-    background-color: #333;
-    color: #eee;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1em;
-    margin-bottom: 1em;
-}
-
-#favorites-main .favorite-item .comment-section button {
-    background-color: #222;
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    padding: 0.8em 1.5em;
-    border-radius: 25px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-#favorites-main .favorite-item .comment-section button:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-/* About Page Styles */
-#about-main {
-    padding: 100px 20px 20px; /* Adjust for fixed header */
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center; /* Center content for a cleaner look */
-}
-
-#about-intro {
-    margin-bottom: 2em; /* Space before the main content */
-}
-
-#about-intro h2 {
-    font-size: 2.5em;
-    color: #a7ffeb; /* Accent color for heading */
-    margin-bottom: 0.5em;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-#about-intro img {
-    width: 200px; /* Adjust image size */
-    height: 200px;
-    border-radius: 50%; /* Circular image */
-    object-fit: cover;
-    margin-bottom: 1em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for depth */
-}
-
-#about-intro p {
-    font-size: 1.1em;
-    line-height: 1.7;
-    color: #ddd;
-    padding: 0 1em;
-}
-
-#about-content {
-    background-color: #252525;
-    padding: 2em;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-#about-content h3 {
-    font-size: 2em;
-    color: #eee;
-    margin-bottom: 0.7em;
-}
-
-#about-content p {
-    font-size: 1.1em;
-    line-height: 1.7;
-    color: #ccc;
-}
-
-
- /*comment section */
-.comment-section {
-    margin-top: 10px;
-}
-
-.comment-input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 5px;
-    border: 1px solid #555; 
-    border-radius: 8px;      
-    box-sizing: border-box;
-    background-color: #333;   
-    color: #fff;           
-}
-
-.comment-input::placeholder {
-    color: #999;           
-}
-
-
-/* Styling for the comment list */
-.comment-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* Styling for individual comments */
-.comment-list li {
-    margin-bottom: 8px;
-    padding: 8px 0;         
-    border-bottom: 1px solid #555;
-    color: #fff;               
-    word-break: break-word;
-}
-
-/* --- Added Carousel Fixes (from index.html) --- */
 .hero-carousel {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: center; /* Centers text vertically */
+    justify-content: center; /* Centers text horizontally */
 }
+
+/* Image Positioning */
+.carousel-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Puts images behind text */
+}
+
 .carousel-images img {
     display: none;
     width: 100%;
-    max-width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover; /* Forces all images to exactly fill the box */
+    object-position: center 20%; /* Focuses on upper middle of images */
 }
+
 .carousel-images img.active {
     display: block;
 }
+
+/* Carousel Buttons */
 .prev, .next {
     position: absolute;
     top: 50%;
@@ -479,120 +172,246 @@ footer {
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
-.prev { left: 10px; }
-.next { right: 10px; }
+
+.prev { left: 15px; }
+.next { right: 15px; }
 .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.9); }
+
+/* Text Content over Images */
 .hero-content {
+    position: relative;
+    z-index: 2; /* Places text on top of images */
+    width: 100%;       
+    max-width: 800px;  
+    padding: 0 60px; /* Space on sides so text doesn't touch arrows */
+    pointer-events: none; /* Clicks pass through to images if needed */
+}
+
+#home-main #hero h1 {
+    font-family: 'Brolimo', sans-serif;
+    font-size: 4em;  
+    margin: 0;
+    letter-spacing: -2px;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9); /* Strong shadow replaces background */
+}
+
+/* Intro Section */
+#home-main #intro {
+    padding: 4em 0;
     text-align: center;
+}
+#home-main #intro .intro-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+#home-main #intro h2 {
+    font-size: 2.5em;
+    margin-bottom: 0.6em;
+    font-weight: 600;
+}
+#home-main #intro p {
+    font-size: 1.2em;
+    color: #ccc;
+}
+#home-main #intro .read-more-button {
+    display: inline-block;
+    font-family: 'Lora', serif;   
+    padding: 1em 2em;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    color: white;
+    border-radius: 26px;
+    font-size: 0.6em;
     margin-top: 15px;
 }
 
-/* --- Added About Page Scoped Styles (from about.html) --- */
+
+/* =========================================
+   PORTFOLIO PAGE
+   ========================================= */
+#portfolio-main #portfolio-intro {
+    text-align: center;
+    padding: 4em 0;
+}
+#portfolio-main #image-gallery .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.gallery-item {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative; 
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+.topic-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; 
+    color: white;
+    font-size: 1.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    opacity: 0;  
+    transition: opacity 0.3s ease;
+    z-index: 1;     
+}
+.gallery-item:hover .topic-text { opacity: 1; }
+
+
+/* =========================================
+   FAVORITES PAGE
+   ========================================= */
+#favorites-main #favorites-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3em 0;
+}
+.favorite-item {
+    margin-bottom: 3em;
+    text-align: center;
+    background-color: #222;
+    border-radius: 10px;
+    padding: 2em;
+    max-width: 600px; 
+}
+.favorite-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1.5em;
+}
+.like-button {
+    background-color: #222 ;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    padding: 5px 25px;
+    border-radius: 50px; 
+    cursor: pointer;
+}
+.heart-icon {
+    height: 18px;
+    filter: invert(1);
+    width: 20px;
+    margin-top: 5px;
+}
+.liked .heart-icon {
+    content: url('images/heart-filled-icon.png');
+}
+.comment-section textarea {
+    width: 90%;
+    height: 80px;
+    padding: 0.8em;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #eee;
+    margin-top: 15px;
+}
+.comment-list li {
+    border-bottom: 1px solid #555;
+    padding: 8px 0;
+}
+
+
+/* =========================================
+   ABOUT PAGE
+   ========================================= */
 #about-main {
-    line-height: 1.6;
-    text-align: justify;
+    padding: 100px 20px 20px; 
+    max-width: 800px;
+    margin: 0 auto;
 }
 #about-main p {
     text-indent: 40px;
     margin-bottom: 20px;
     line-height: 1.8;
 }
-#about-main em {
-    font-style: italic;
+#about-intro {
+    text-align: center;
+}
+#about-intro img {
+    width: 200px; 
+    height: 200px;
+    border-radius: 50%; 
+    object-fit: cover;
 }
 
-/* --- Added Favorites Page Styles (from favorites.html) --- */
-.liked .heart-icon {
-    content: url('images/heart-filled-icon.png');
-}
 
 /* =========================================
-   MOBILE RESPONSIVENESS (PHONES & TABLETS)
+   MOBILE RESPONSIVENESS (PHONES/TABLETS)
    ========================================= */
 @media screen and (max-width: 768px) {
     
-    /* --- Header & Navigation --- */
+    /* --- Fix Top Bar --- */
     nav {
-        flex-direction: column; /* Stacks the menu items vertically */
-        padding: 10px;
-    }
-
-    .site-title {
-        margin-right: 0; /* Removes the huge margin that breaks mobile */
-        margin-bottom: 10px;
-        order: -1; /* Puts the title at the very top */
-    }
-
-    nav ul {
-        margin-inline: 0;
-        flex-wrap: wrap; /* Allows links to wrap to the next line if needed */
+        flex-wrap: wrap; /* Allows menu to wrap nicely */
         justify-content: center;
-        gap: 10px;
-    }
-
-    nav ul.nav-icons {
-        padding-left: 0;
-        margin-top: 5px;
-    }
-
-    /* Pushes main content further down so the taller mobile header doesn't cover it */
-    #home-main, #portfolio-main, #favorites-main, #about-main {
-        margin-top: 140px; 
-    }
-
-    /* --- Hero Section & Carousel --- */
-    #home-main #hero {
-        height: 350px; /* Shorter carousel for mobile */
-        margin: 0 10px; /* Adds a little breathing room on the sides */
-    }
-
-    #home-main #hero h1 {
-        font-size: 2.2em; /* Shrinks the massive title */
-    }
-
-    #home-main #hero p {
-        font-size: 1.2em;
-    }
-
-    .prev, .next {
-        padding: 10px 15px; /* Slightly smaller buttons */
-        font-size: 18px;
-    }
-
-    /* --- Typography & Content --- */
-    #home-main #intro h2, 
-    #portfolio-main #portfolio-intro h2, 
-    #about-intro h2, 
-    #favorites-gallery h2 {
-        font-size: 2em; /* Shrinks section headers */
-        padding-inline: 15px;
-    }
-
-    #home-main #intro p, 
-    #about-main p {
-        font-size: 1em;
-        padding-inline: 15px;
-    }
-
-    /* --- Portfolio Gallery --- */
-    #portfolio-main #image-gallery .gallery-grid {
-        grid-template-columns: 1fr; /* Forces exactly 1 image per row on phones */
         padding: 15px;
     }
-
-    /* --- Favorites Page --- */
-    #favorites-main .favorite-item {
-        margin: 0 15px 2em 15px; /* Keeps boxes from touching the screen edges */
-        padding: 1.5em 1em;
+    .site-title {
+        width: 100%; /* Forces title to take top row */
+        text-align: center;
+        margin: 0 0 10px 0;
+        order: -1; 
+    }
+    nav ul {
+        justify-content: center;
+        gap: 10px; /* Space between links */
+    }
+    nav ul.nav-icons {
+        padding-left: 0;
+    }
+    nav ul li a {
+        font-size: 0.6em;
+        padding: 0.5em 0.8em;
     }
 
-    /* --- About Page --- */
-    #about-intro img {
-        width: 150px; /* Smaller profile picture */
-        height: 150px;
+    /* Prevent content from hiding under mobile header */
+    #home-main, #portfolio-main, #favorites-main, #about-main {
+        margin-top: 120px; 
     }
-    
-    #about-main p {
-        text-indent: 20px; /* Smaller indent for smaller screens */
+
+    /* --- Fix Carousel for Mobile --- */
+    #home-main #hero {
+        height: 300px; /* Smaller carousel box */
+        margin: 0 15px; 
+    }
+    .hero-content {
+        padding: 0 40px; /* Keep text away from arrows */
+    }
+    #home-main #hero h1 {
+        font-size: 1.8em; /* Drastically shrink text to fit */
+        line-height: 1.3;
+    }
+    .prev, .next {
+        padding: 10px 12px; 
+        font-size: 16px;
+    }
+
+    /* --- Fix General Content --- */
+    #home-main #intro h2 {
+        font-size: 2em;
+        padding: 0 15px;
+    }
+    #home-main #intro p {
+        font-size: 1em;
+        padding: 0 15px;
+    }
+    #portfolio-main #image-gallery .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .favorite-item {
+        margin: 0 15px 2em 15px;
     }
 }
